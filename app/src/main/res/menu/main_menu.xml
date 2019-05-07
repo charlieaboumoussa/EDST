@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:id="@+id/itemsGroup"
+        android:orderInCategory="0">
+    </group>
+
+    <group
+        android:id="@+id/footerGroup"
+        android:orderInCategory="1">
+    </group>
+</menu>
