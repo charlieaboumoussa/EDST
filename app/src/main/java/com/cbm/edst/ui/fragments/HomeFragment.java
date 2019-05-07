@@ -1,4 +1,4 @@
-package com.cbm.edst.ui;
+package com.cbm.edst.ui.fragments;
 
 
 import android.os.Bundle;

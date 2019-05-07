@@ -7,4 +7,7 @@
     <string name="inscription">Inscription</string>
     <string name="contact_us">Contact Us</string>
     <string name="cancel">Cancel</string>
+    <string name="name">Name</string>
+    <string name="next">Next</string>
+    <string name="home">Home</string>
 </resources>

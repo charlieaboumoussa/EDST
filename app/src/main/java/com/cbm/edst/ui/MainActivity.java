@@ -58,14 +58,18 @@ public class MainActivity extends AppCompatActivity {
 
         Menu menu = navigationView.getMenu();
         MenuItem menuItem;
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 4; i++) {
             int fragmentId = R.id.homeFragment;
             switch (i) {
-                case 0:  fragmentId = R.id.homeFragment;
+                case 0:
+                    fragmentId = R.id.homeFragment;
                     break;
                 case 1:
+                    fragmentId = R.id.registrationFragment;
                     break;
                 case 2:
+                    break;
+                case 3:
                     break;
                 default:
             }
@@ -73,18 +77,23 @@ public class MainActivity extends AppCompatActivity {
             menuItem.setActionView(R.layout.menu_item_layout);
             switch (i) {
                 case 0:
-                    ((TextView) menuItem.getActionView().findViewById(R.id.tv)).setText(getString(R.string.registration));
-                    //            set Image for menu item
+                    ((TextView) menuItem.getActionView().findViewById(R.id.tv)).setText(getString(R.string.home));
+//            set Image for menu item
 //            ((ImageView) menuItem.getActionView().findViewById(R.id.iv)).setImageResource();
                     break;
                 case 1:
-                    ((TextView) menuItem.getActionView().findViewById(R.id.tv)).setText(getString(R.string.inscription));
-                    //            set Image for menu item
+                    ((TextView) menuItem.getActionView().findViewById(R.id.tv)).setText(getString(R.string.registration));
+//            set Image for menu item
 //            ((ImageView) menuItem.getActionView().findViewById(R.id.iv)).setImageResource();
                     break;
                 case 2:
+                    ((TextView) menuItem.getActionView().findViewById(R.id.tv)).setText(getString(R.string.inscription));
+//            set Image for menu item
+//            ((ImageView) menuItem.getActionView().findViewById(R.id.iv)).setImageResource();
+                    break;
+                case 3:
                     ((TextView) menuItem.getActionView().findViewById(R.id.tv)).setText(getString(R.string.contact_us));
-                    //            set Image for menu item
+//            set Image for menu item
 //            ((ImageView) menuItem.getActionView().findViewById(R.id.iv)).setImageResource();
                     break;
                 default:
@@ -96,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
             public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
                 switch (destination.getId()) {
                     case R.id.homeFragment:
-                        setToolbarTitle(R.string.registration, true, false);
+                        setToolbarTitle(R.string.app_name, true, false);
                         break;
                     default:
                         break;
