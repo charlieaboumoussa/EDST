@@ -15,4 +15,14 @@
         android:name="com.cbm.edst.ui.fragments.RegistrationFragment"
         android:label="RegistrationFragment"
         tools:layout="@layout/fragment_registration" />
+    <fragment
+        android:id="@+id/inscriptionFragment"
+        android:name="com.cbm.edst.ui.fragments.InscriptionFragment"
+        android:label="InscriptionFragment"
+        tools:layout="@layout/fragment_inscription" />
+    <fragment
+        android:id="@+id/contactusFragment"
+        android:name="com.cbm.edst.ui.fragments.ContactUsFragment"
+        android:label="ContactUsFragment"
+        tools:layout="@layout/fragment_contact_us" />
 </navigation>

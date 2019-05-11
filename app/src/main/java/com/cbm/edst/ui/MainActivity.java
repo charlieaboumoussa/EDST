@@ -68,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
                     fragmentId = R.id.registrationFragment;
                     break;
                 case 2:
+                    fragmentId = R.id.inscriptionFragment;
                     break;
                 case 3:
                     break;
@@ -106,6 +107,12 @@ public class MainActivity extends AppCompatActivity {
                 switch (destination.getId()) {
                     case R.id.homeFragment:
                         setToolbarTitle(R.string.app_name, true, false);
+                        break;
+                    case R.id.registrationFragment:
+                        setToolbarTitle(R.string.registration, true, false);
+                        break;
+                    case R.id.inscriptionFragment:
+                        setToolbarTitle(R.string.inscription, true, false);
                         break;
                     default:
                         break;

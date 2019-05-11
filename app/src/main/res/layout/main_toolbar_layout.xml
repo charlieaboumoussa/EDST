@@ -35,7 +35,7 @@
         android:layout_width="@dimen/menu_image_size"
         android:layout_height="@dimen/menu_image_size"
         android:layout_marginStart="32dp"
-        android:background="@android:color/black"
+        android:src="@drawable/ic_edst_logo_round"
         app:layout_constraintBottom_toBottomOf="@+id/ivMenu"
         app:layout_constraintStart_toEndOf="@+id/ivMenu"
         app:layout_constraintTop_toTopOf="@+id/ivMenu" />

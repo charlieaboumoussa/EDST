@@ -7,7 +7,20 @@
     <string name="inscription">Inscription</string>
     <string name="contact_us">Contact Us</string>
     <string name="cancel">Cancel</string>
-    <string name="name">Name</string>
-    <string name="next">Next</string>
+    <string name="firstname">Nom</string>
+    <string name="lastname">Prénom</string>
+    <string name="email">Adresse email</string>
+    <string name="phonenum">Téléphone</string>
+    <string name="specialization">Spécialisation</string>
+    <string name="category">Catégorie</string>
+    <string name="otherspecialization">Autre Spécialisation</string>
+    <string name="typeofreservation">Type de réservation</string>
+    <string name="dateofreservation">Date de réservation</string>
+    <string name="coursename">Nom du cours</string>
+    <string name="coursedescription">Description du cours</string>
+    <string name="starthour">Heure de début</string>
+    <string name="endhour">Heure de fin</string>
+    <string name="next">Suivant</string>
+    <string name="send">Envoyer</string>
     <string name="home">Home</string>
 </resources>
