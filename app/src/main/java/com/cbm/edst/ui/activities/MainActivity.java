@@ -1,4 +1,11 @@
-package com.cbm.edst.ui;
+package com.cbm.edst.ui.activities;
+
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,15 +19,12 @@ import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
-
 import com.cbm.edst.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+
+import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEvent;
+import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEventListener;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private Toolbar mToolbar;
     private View.OnClickListener mOpenDrawerOnClick, mBackOnClick;
     private NavController mNavController;
+    private boolean mIsKeyboardOpen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
         mDrawerLayout = findViewById(R.id.drawerLayout);
         mToolbar = findViewById(R.id.toolbar);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
 
         NavigationView navigationView = findViewById(R.id.navigation);
         mNavController = Navigation.findNavController(this, R.id.fragment);
@@ -68,8 +74,10 @@ public class MainActivity extends AppCompatActivity {
                     fragmentId = R.id.registrationFragment;
                     break;
                 case 2:
+                    fragmentId = R.id.inscriptionFragment;
                     break;
                 case 3:
+                    fragmentId = R.id.contactusFragment;
                     break;
                 default:
             }
@@ -79,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
                 case 0:
                     ((TextView) menuItem.getActionView().findViewById(R.id.tv)).setText(getString(R.string.home));
 //            set Image for menu item
-//            ((ImageView) menuItem.getActionView().findViewById(R.id.iv)).setImageResource();
+            ((ImageView) menuItem.getActionView().findViewById(R.id.iv)).setImageResource(R.drawable.ic_home);
                     break;
                 case 1:
                     ((TextView) menuItem.getActionView().findViewById(R.id.tv)).setText(getString(R.string.registration));
@@ -107,11 +115,30 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.homeFragment:
                         setToolbarTitle(R.string.app_name, true, false);
                         break;
+                    case R.id.registrationFragment:
+                        setToolbarTitle(R.string.registration, true, false);
+                        break;
+                    case R.id.inscriptionFragment:
+                        setToolbarTitle(R.string.inscription, true, false);
+                        break;
                     default:
                         break;
                 }
             }
         });
+
+        KeyboardVisibilityEvent.setEventListener(this, new KeyboardVisibilityEventListener() {
+            @Override
+            public void onVisibilityChanged(boolean isOpen) {
+                mIsKeyboardOpen = isOpen;
+                if (mIsKeyboardOpen) {
+                    bottomNavigationView.setVisibility(View.GONE);
+                } else {
+                    bottomNavigationView.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
     }
 
     public void setToolbarTitle(@StringRes int titleRes, boolean isLogoVisible, boolean withBackButton) {
