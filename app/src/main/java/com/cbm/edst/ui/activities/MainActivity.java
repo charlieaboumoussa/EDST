@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -104,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
                 case 3:
                     ((TextView) menuItem.getActionView().findViewById(R.id.tv)).setText(getString(R.string.contact_us));
 //            set Image for menu item
-//            ((ImageView) menuItem.getActionView().findViewById(R.id.iv)).setImageResource();
+            ((ImageView) menuItem.getActionView().findViewById(R.id.iv)).setImageResource(R.drawable.ic_phone);
                     break;
                 default:
             }
