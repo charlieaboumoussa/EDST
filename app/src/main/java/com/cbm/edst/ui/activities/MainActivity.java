@@ -115,18 +115,22 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.homeFragment:
                         setToolbarTitle(R.string.app_name, true, false);
                         setToolbarAppImageVisibility(true);
+                        setToolbarSettingsVisibility(true);
                         break;
                     case R.id.registrationFragment:
                         setToolbarTitle(R.string.registration, true, false);
                         setToolbarAppImageVisibility(false);
+                        setToolbarSettingsVisibility(false);
                         break;
                     case R.id.inscriptionFragment:
                         setToolbarTitle(R.string.inscription, true, false);
                         setToolbarAppImageVisibility(false);
+                        setToolbarSettingsVisibility(false);
                         break;
                     case R.id.contactusFragment:
                         setToolbarTitle(R.string.contact_us, true, false);
                         setToolbarAppImageVisibility(false);
+                        setToolbarSettingsVisibility(false);
                         break;
                     default:
                         break;
@@ -170,6 +174,15 @@ public class MainActivity extends AppCompatActivity {
             toolbarAppImage.setVisibility(View.GONE);
         } else {
             toolbarAppImage.setVisibility(View.VISIBLE);
+        }
+    }
+
+    public void setToolbarSettingsVisibility(boolean visibility) {
+        ImageView toolbarSettings = mToolbar.findViewById(R.id.ivSettings);
+        if (!visibility) {
+            toolbarSettings.setVisibility(View.GONE);
+        } else {
+            toolbarSettings.setVisibility(View.VISIBLE);
         }
     }
 }
