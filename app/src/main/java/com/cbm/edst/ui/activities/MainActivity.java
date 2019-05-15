@@ -41,10 +41,12 @@ public class MainActivity extends AppCompatActivity {
 
         mDrawerLayout = findViewById(R.id.drawerLayout);
         mToolbar = findViewById(R.id.toolbar);
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
 
         NavigationView navigationView = findViewById(R.id.navigation);
         NavController navController = Navigation.findNavController(this, R.id.fragment);
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        NavigationUI.setupWithNavController(bottomNavigationView, navController);
 
         mOpenDrawerOnClick = new View.OnClickListener() {
             @Override
@@ -106,8 +108,9 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 default:
             }
+            NavigationUI.setupWithNavController(navigationView, navController);
         }
-        NavigationUI.setupWithNavController(navigationView, navController);
+
         navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
             @Override
             public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {

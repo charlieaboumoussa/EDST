@@ -1,4 +1,4 @@
-package com.cbm.edst.retrofit;
+package com.cbm.edst.common.retrofit;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

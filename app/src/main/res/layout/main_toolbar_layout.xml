@@ -38,11 +38,11 @@
 
     <ImageView
         android:id="@+id/ivEDST"
-        android:layout_width="@dimen/menu_image_size"
-        android:layout_height="@dimen/menu_image_size"
+        android:layout_width="@dimen/menu_edst_image_size"
+        android:layout_height="@dimen/menu_edst_image_size"
         android:layout_marginStart="64dp"
         android:layout_marginEnd="32dp"
-        android:src="@android:color/black"
+        android:src="@mipmap/edst_logo_round"
         app:layout_constraintBottom_toBottomOf="@+id/ivMenu"
         app:layout_constraintEnd_toStartOf="@+id/tv"
         app:layout_constraintStart_toEndOf="@+id/ivMenu"

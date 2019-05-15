@@ -14,7 +14,15 @@
         android:id="@+id/registrationFragment"
         android:name="com.cbm.edst.ui.fragments.RegistrationFragment"
         android:label="RegistrationFragment"
-        tools:layout="@layout/fragment_registration" />
+        tools:layout="@layout/fragment_registration" >
+        <action
+            android:id="@+id/RegistrationToRegistration1"
+            app:destination="@id/registration1Fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
     <fragment
         android:id="@+id/inscriptionFragment"
         android:name="com.cbm.edst.ui.fragments.InscriptionFragment"
@@ -25,4 +33,9 @@
         android:name="com.cbm.edst.ui.fragments.ContactUsFragment"
         android:label="ContactUsFragment"
         tools:layout="@layout/fragment_contact_us" />
+    <fragment
+        android:id="@+id/registration1Fragment"
+        android:name="com.cbm.edst.ui.fragments.Registration1Fragment"
+        android:label="fragment_registration1"
+        tools:layout="@layout/fragment_registration1" />
 </navigation>
