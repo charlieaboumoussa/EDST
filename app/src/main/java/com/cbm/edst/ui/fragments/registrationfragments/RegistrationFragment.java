@@ -1,4 +1,4 @@
-package com.cbm.edst.ui.fragments;
+package com.cbm.edst.ui.fragments.registrationfragments;
 
 import android.os.Bundle;
 import android.util.Pair;

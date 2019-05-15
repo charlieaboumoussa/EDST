@@ -117,21 +117,25 @@ public class MainActivity extends AppCompatActivity {
                 switch (destination.getId()) {
                     case R.id.homeFragment:
                         setToolbarTitle(R.string.app_name, true, false);
+                        showMenuToolbar();
                         setToolbarAppImageVisibility(true);
                         setToolbarSettingsVisibility(true);
                         break;
                     case R.id.registrationFragment:
                         setToolbarTitle(R.string.registration, true, false);
+                        showMenuToolbar();
                         setToolbarAppImageVisibility(false);
                         setToolbarSettingsVisibility(false);
                         break;
                     case R.id.inscriptionFragment:
                         setToolbarTitle(R.string.inscription, true, false);
+                        showMenuToolbar();
                         setToolbarAppImageVisibility(false);
                         setToolbarSettingsVisibility(false);
                         break;
                     case R.id.contactusFragment:
                         setToolbarTitle(R.string.contact_us, true, false);
+                        showMenuToolbar();
                         setToolbarAppImageVisibility(false);
                         setToolbarSettingsVisibility(false);
                         break;
@@ -187,5 +191,17 @@ public class MainActivity extends AppCompatActivity {
         } else {
             toolbarSettings.setVisibility(View.VISIBLE);
         }
+    }
+
+    public void showMenuToolbar() {
+        ImageView ivDrawer = mToolbar.findViewById(R.id.ivMenu);
+        ivDrawer.setImageResource(R.drawable.ic_menu);
+        ivDrawer.setOnClickListener(mOpenDrawerOnClick);
+    }
+
+    public void showBackToolbar() {
+        ImageView ivDrawer = mToolbar.findViewById(R.id.ivMenu);
+        ivDrawer.setImageResource(R.drawable.ic_arrow_back);
+        ivDrawer.setOnClickListener(mBackOnClick);
     }
 }
