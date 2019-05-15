@@ -25,6 +25,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <com.cbm.edst.common.views.SelectionEditText
+                android:id="@+id/setTypeOfReservation_reg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableEnd="@drawable/ic_arrow_down" />
@@ -43,11 +44,10 @@
             app:layout_constraintStart_toStartOf="@+id/tilTypeOfReservation_reg"
             app:layout_constraintTop_toBottomOf="@+id/tilTypeOfReservation_reg">
 
-            <com.google.android.material.textfield.TextInputEditText
+            <com.cbm.edst.common.views.DatePickerEditText
+                android:id="@+id/detDateOfReservation"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:ellipsize="end"
-                android:maxLines="1" />
+                android:layout_height="match_parent" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout

@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
     private Toolbar mToolbar;
     private View.OnClickListener mOpenDrawerOnClick, mBackOnClick;
-    private NavController mNavController;
+
     private boolean mIsKeyboardOpen;
 
     @Override
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
 
         NavigationView navigationView = findViewById(R.id.navigation);
-        mNavController = Navigation.findNavController(this, R.id.fragment);
+        NavController navController = Navigation.findNavController(this, R.id.fragment);
 
         mOpenDrawerOnClick = new View.OnClickListener() {
             @Override
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         mBackOnClick = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mNavController.navigateUp();
+                navController.navigateUp();
             }
         };
 
@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
                 case 0:
                     ((TextView) menuItem.getActionView().findViewById(R.id.tv)).setText(getString(R.string.home));
 //            set Image for menu item
-            ((ImageView) menuItem.getActionView().findViewById(R.id.iv)).setImageResource(R.drawable.ic_home);
+                    ((ImageView) menuItem.getActionView().findViewById(R.id.iv)).setImageResource(R.drawable.ic_home);
                     break;
                 case 1:
                     ((TextView) menuItem.getActionView().findViewById(R.id.tv)).setText(getString(R.string.registration));
@@ -107,19 +107,26 @@ public class MainActivity extends AppCompatActivity {
                 default:
             }
         }
-        NavigationUI.setupWithNavController(navigationView, mNavController);
-        mNavController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
+        NavigationUI.setupWithNavController(navigationView, navController);
+        navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
             @Override
             public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
                 switch (destination.getId()) {
                     case R.id.homeFragment:
                         setToolbarTitle(R.string.app_name, true, false);
+                        setToolbarAppImageVisibility(true);
                         break;
                     case R.id.registrationFragment:
                         setToolbarTitle(R.string.registration, true, false);
+                        setToolbarAppImageVisibility(false);
                         break;
                     case R.id.inscriptionFragment:
                         setToolbarTitle(R.string.inscription, true, false);
+                        setToolbarAppImageVisibility(false);
+                        break;
+                    case R.id.contactusFragment:
+                        setToolbarTitle(R.string.contact_us, true, false);
+                        setToolbarAppImageVisibility(false);
                         break;
                     default:
                         break;
@@ -154,6 +161,15 @@ public class MainActivity extends AppCompatActivity {
             ivLogo.setVisibility(View.VISIBLE);
         } else {
             ivLogo.setVisibility(View.GONE);
+        }
+    }
+
+    public void setToolbarAppImageVisibility(boolean visibility) {
+        ImageView toolbarAppImage = mToolbar.findViewById(R.id.ivEDST);
+        if (!visibility) {
+            toolbarAppImage.setVisibility(View.GONE);
+        } else {
+            toolbarAppImage.setVisibility(View.VISIBLE);
         }
     }
 }

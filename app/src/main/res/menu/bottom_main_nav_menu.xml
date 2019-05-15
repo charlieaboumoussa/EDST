@@ -9,10 +9,10 @@
 
     <item
         android:id="@+id/registrationFragment"
-        android:title=""/>
+        android:title="@string/registration"/>
 
     <item
         android:id="@+id/inscriptionFragment"
-        android:title=""/>
+        android:title="@string/inscription"/>
 
 </menu>

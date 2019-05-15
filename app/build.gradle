@@ -63,4 +63,7 @@ dependencies {
 
     implementation 'net.yslibrary.keyboardvisibilityevent:keyboardvisibilityevent:2.2.1'
     implementation project(':roundedimageview')
+
+    implementation 'androidx.viewpager:viewpager:1.0.0'
+    implementation 'com.wdullaer:materialdatetimepicker:4.1.2'
 }
