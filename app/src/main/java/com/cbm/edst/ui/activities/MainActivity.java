@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -41,10 +42,12 @@ public class MainActivity extends AppCompatActivity {
 
         mDrawerLayout = findViewById(R.id.drawerLayout);
         mToolbar = findViewById(R.id.toolbar);
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
 
         NavigationView navigationView = findViewById(R.id.navigation);
         NavController navController = Navigation.findNavController(this, R.id.fragment);
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        NavigationUI.setupWithNavController(bottomNavigationView, navController);
 
         mOpenDrawerOnClick = new View.OnClickListener() {
             @Override
@@ -102,33 +105,38 @@ public class MainActivity extends AppCompatActivity {
                 case 3:
                     ((TextView) menuItem.getActionView().findViewById(R.id.tv)).setText(getString(R.string.contact_us));
 //            set Image for menu item
-//            ((ImageView) menuItem.getActionView().findViewById(R.id.iv)).setImageResource();
+            ((ImageView) menuItem.getActionView().findViewById(R.id.iv)).setImageResource(R.drawable.ic_phone);
                     break;
                 default:
             }
+            NavigationUI.setupWithNavController(navigationView, navController);
         }
-        NavigationUI.setupWithNavController(navigationView, navController);
+
         navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
             @Override
             public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
                 switch (destination.getId()) {
                     case R.id.homeFragment:
                         setToolbarTitle(R.string.app_name, true, false);
+                        showMenuToolbar();
                         setToolbarAppImageVisibility(true);
                         setToolbarSettingsVisibility(true);
                         break;
                     case R.id.registrationFragment:
                         setToolbarTitle(R.string.registration, true, false);
+                        showMenuToolbar();
                         setToolbarAppImageVisibility(false);
                         setToolbarSettingsVisibility(false);
                         break;
                     case R.id.inscriptionFragment:
                         setToolbarTitle(R.string.inscription, true, false);
+                        showMenuToolbar();
                         setToolbarAppImageVisibility(false);
                         setToolbarSettingsVisibility(false);
                         break;
                     case R.id.contactusFragment:
                         setToolbarTitle(R.string.contact_us, true, false);
+                        showMenuToolbar();
                         setToolbarAppImageVisibility(false);
                         setToolbarSettingsVisibility(false);
                         break;
@@ -184,5 +192,17 @@ public class MainActivity extends AppCompatActivity {
         } else {
             toolbarSettings.setVisibility(View.VISIBLE);
         }
+    }
+
+    public void showMenuToolbar() {
+        ImageView ivDrawer = mToolbar.findViewById(R.id.ivMenu);
+        ivDrawer.setImageResource(R.drawable.ic_menu);
+        ivDrawer.setOnClickListener(mOpenDrawerOnClick);
+    }
+
+    public void showBackToolbar() {
+        ImageView ivDrawer = mToolbar.findViewById(R.id.ivMenu);
+        ivDrawer.setImageResource(R.drawable.ic_arrow_back);
+        ivDrawer.setOnClickListener(mBackOnClick);
     }
 }

@@ -1,21 +1,26 @@
-package com.cbm.edst.ui.fragments;
+package com.cbm.edst.ui.fragments.registrationfragments;
 
 import android.os.Bundle;
 import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.cbm.edst.R;
-import com.cbm.edst.common.views.SelectionEditText;
-import com.cbm.edst.common.views.SelectionModel;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.MutableLiveData;
+import androidx.navigation.Navigation;
+
+import com.cbm.edst.R;
+import com.cbm.edst.common.views.SelectionEditText;
+import com.cbm.edst.common.views.SelectionModel;
+import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class RegistrationFragment extends Fragment {
 
@@ -52,5 +57,43 @@ public class RegistrationFragment extends Fragment {
 
         category.setSelectionModel(mCategoryModel);
         specialization.setSelectionModel(mSpecializationModel);
+
+        Button next = view.findViewById(R.id.next_reg);
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //todo check fields and handle erros
+                //if fields are valid
+                //add args to save the registration object in next fragment
+                Navigation.findNavController(view).navigate(R.id.RegistrationToRegistration1);
+            }
+        });
+    }
+
+    private boolean isEmpty(TextInputEditText textInputEditText) {
+        if (textInputEditText.getText().toString().trim().length() <= 0 || textInputEditText.getText().toString() == "") {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean isEmailValid(String email) {
+        String regExpn =
+                "^(([\\w-]+\\.)+[\\w-]+|([a-zA-Z]{1}|[\\w-]{2,}))@"
+                        + "((([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
+                        + "[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\."
+                        + "([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
+                        + "[0-9]{1,2}|25[0-5]|2[0-4][0-9])){1}|"
+                        + "([a-zA-Z]+[\\w-]+\\.)+[a-zA-Z]{2,4})$";
+
+        CharSequence inputStr = email;
+
+        Pattern pattern = Pattern.compile(regExpn, Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(inputStr);
+
+        if (matcher.matches())
+            return true;
+        else
+            return false;
     }
 }

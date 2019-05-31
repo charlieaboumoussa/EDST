@@ -1,4 +1,4 @@
-package com.cbm.edst.retrofit;
+package com.cbm.edst.common.retrofit;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;

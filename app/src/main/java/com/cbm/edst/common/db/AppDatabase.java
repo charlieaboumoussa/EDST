@@ -1,4 +1,4 @@
-package com.cbm.edst.db;
+package com.cbm.edst.common.db;
 
 
 import android.content.Context;

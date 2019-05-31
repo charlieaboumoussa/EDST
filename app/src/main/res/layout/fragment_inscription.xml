@@ -28,6 +28,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:ellipsize="end"
+                android:inputType="text"
                 android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -101,6 +102,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tilPhoneNumber_ins">
 
             <com.cbm.edst.common.views.SelectionEditText
+                android:id="@+id/setSpecialization_ins"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:drawableEnd="@drawable/ic_arrow_down" />
@@ -138,6 +140,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tilOtherSpecialization_ins">
 
             <com.cbm.edst.common.views.SelectionEditText
+                android:id="@+id/setCategory_ins"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableEnd="@drawable/ic_arrow_down" />
@@ -156,6 +159,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tilCategory_ins">
 
             <com.cbm.edst.common.views.SelectionEditText
+                android:id="@+id/setCourseName_ins"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableEnd="@drawable/ic_arrow_down" />
@@ -185,10 +189,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
+            android:layout_marginBottom="64dp"
             android:text="@string/send"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/tilCourseDescription_ins"
             app:layout_constraintStart_toStartOf="@+id/tilCourseDescription_ins"
-            app:layout_constraintTop_toBottomOf="@+id/tilCourseDescription_ins" />
+            app:layout_constraintTop_toBottomOf="@+id/tilCourseDescription_ins"
+            app:layout_constraintVertical_bias="0.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

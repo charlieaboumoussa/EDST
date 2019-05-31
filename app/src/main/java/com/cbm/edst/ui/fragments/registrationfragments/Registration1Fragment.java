@@ -1,17 +1,19 @@
-package com.cbm.edst.ui.fragments;
+package com.cbm.edst.ui.fragments.registrationfragments;
 
 
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.MutableLiveData;
-
 import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.MutableLiveData;
+import androidx.navigation.Navigation;
 
 import com.cbm.edst.R;
 import com.cbm.edst.common.views.SelectionEditText;
@@ -22,6 +24,7 @@ import java.util.ArrayList;
 public class Registration1Fragment extends Fragment {
 
     private SelectionModel mTypeOfReservation;
+
     public Registration1Fragment() {
 
     }
@@ -35,6 +38,16 @@ public class Registration1Fragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        Toolbar toolbar = getActivity().findViewById(R.id.toolbar);
+        ImageView ivBack = toolbar.findViewById(R.id.ivMenu);
+        ivBack.setImageResource(R.drawable.ic_arrow_back);
+        ivBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(view).navigateUp();
+            }
+        });
+
         SelectionEditText typeOfReservation = view.findViewById(R.id.setTypeOfReservation_reg);
         typeOfReservation.setDialogTitle("Select type of reservation:");
         mTypeOfReservation = new SelectionModel(new ArrayList<Pair<Long, String>>() {{
@@ -43,5 +56,6 @@ public class Registration1Fragment extends Fragment {
             add(new Pair<Long, String>(2L, "Test3"));
         }}, new MutableLiveData<>());
         typeOfReservation.setSelectionModel(mTypeOfReservation);
+
     }
 }
