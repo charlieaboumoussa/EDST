@@ -20,6 +20,8 @@
     <string name="coursedescription">Description du cours</string>
     <string name="starthour">Heure de début</string>
     <string name="endhour">Heure de fin</string>
+    <string name="messagesubject">Le Sujet du message</string>
+    <string name="message">Le Message</string>
     <string name="next">Suivant</string>
     <string name="send">Envoyer</string>
     <string name="home">Home</string>

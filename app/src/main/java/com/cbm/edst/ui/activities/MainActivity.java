@@ -90,22 +90,22 @@ public class MainActivity extends AppCompatActivity {
                 case 0:
                     ((TextView) menuItem.getActionView().findViewById(R.id.tv)).setText(getString(R.string.home));
 //            set Image for menu item
-                    ((ImageView) menuItem.getActionView().findViewById(R.id.iv)).setImageResource(R.drawable.ic_home);
+                    ((ImageView) menuItem.getActionView().findViewById(R.id.iv)).setImageResource(R.drawable.ic_homepage);
                     break;
                 case 1:
                     ((TextView) menuItem.getActionView().findViewById(R.id.tv)).setText(getString(R.string.registration));
 //            set Image for menu item
-//            ((ImageView) menuItem.getActionView().findViewById(R.id.iv)).setImageResource();
+                    ((ImageView) menuItem.getActionView().findViewById(R.id.iv)).setImageResource(R.drawable.ic_booking);
                     break;
                 case 2:
                     ((TextView) menuItem.getActionView().findViewById(R.id.tv)).setText(getString(R.string.inscription));
 //            set Image for menu item
-//            ((ImageView) menuItem.getActionView().findViewById(R.id.iv)).setImageResource();
+                    ((ImageView) menuItem.getActionView().findViewById(R.id.iv)).setImageResource(R.drawable.ic_contract);
                     break;
                 case 3:
                     ((TextView) menuItem.getActionView().findViewById(R.id.tv)).setText(getString(R.string.contact_us));
 //            set Image for menu item
-            ((ImageView) menuItem.getActionView().findViewById(R.id.iv)).setImageResource(R.drawable.ic_phone);
+                    ((ImageView) menuItem.getActionView().findViewById(R.id.iv)).setImageResource(R.drawable.ic_telephone);
                     break;
                 default:
             }
